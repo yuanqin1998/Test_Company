@@ -38,6 +38,8 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	DECLARE_MESSAGE_MAP()
 
+public:
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
 
 

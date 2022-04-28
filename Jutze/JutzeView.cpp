@@ -28,7 +28,6 @@ BEGIN_MESSAGE_MAP(CJutzeView, CView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
 	ON_WM_LBUTTONDOWN()
-//	ON_WM_PAINT()
 END_MESSAGE_MAP()
 
 // CJutzeView 构造/析构
@@ -62,6 +61,7 @@ void CJutzeView::OnDraw(CDC* pDC)
 
 	// TODO: 在此处为本机数据添加绘制代码
 	pDC->TextOutW(610, 260, TEXT("为了部落！！！"));
+
 }
 
 
@@ -116,12 +116,3 @@ void CJutzeView::OnLButtonDown(UINT nFlags, CPoint point)
 	str.Format(TEXT("X = %d,Y = %d"), point.x, point.y);
 	MessageBox(str);
 }
-
-////优先级高于OnDraw
-//void CJutzeView::OnPaint()	
-//{
-//	CPaintDC C(this); // device context for painting
-//					   // TODO: 在此处添加消息处理程序代码
-//					   // 不为绘图消息调用 CView::OnPaint()
-//	C.TextOutW(520, 300, _T("为了联盟！！！！"));
-//}

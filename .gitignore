@@ -62,3 +62,6 @@ Jutze/res/Toolbar.bmp
 *.db-shm
 *.db-wal
 *.opendb
+*.iobj
+*.ipdb
+*.ini

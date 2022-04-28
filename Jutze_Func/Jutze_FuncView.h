@@ -1,19 +1,19 @@
 ﻿
-// JutzeView.h: CJutzeView 类的接口
+// Jutze_FuncView.h: CJutzeFuncView 类的接口
 //
 
 #pragma once
 
 
-class CJutzeView : public CView
+class CJutzeFuncView : public CView
 {
 protected: // 仅从序列化创建
-	CJutzeView() noexcept;
-	DECLARE_DYNCREATE(CJutzeView)
+	CJutzeFuncView() noexcept;
+	DECLARE_DYNCREATE(CJutzeFuncView)
 
 // 特性
 public:
-	CJutzeDoc* GetDocument() const;
+	CJutzeFuncDoc* GetDocument() const;
 
 // 操作
 public:
@@ -29,7 +29,7 @@ protected:
 
 // 实现
 public:
-	virtual ~CJutzeView();
+	virtual ~CJutzeFuncView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -40,12 +40,10 @@ protected:
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()
-public:
-	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
 
-#ifndef _DEBUG  // JutzeView.cpp 中的调试版本
-inline CJutzeDoc* CJutzeView::GetDocument() const
-   { return reinterpret_cast<CJutzeDoc*>(m_pDocument); }
+#ifndef _DEBUG  // Jutze_FuncView.cpp 中的调试版本
+inline CJutzeFuncDoc* CJutzeFuncView::GetDocument() const
+   { return reinterpret_cast<CJutzeFuncDoc*>(m_pDocument); }
 #endif
 

@@ -9,6 +9,7 @@
 #include "CDisplayView.h"
 #include "CSelectView.h"
 #include "CUserDlg.h"
+#include "CDlgSell.h"
 
 #include "MainFrm.h"
 
@@ -150,8 +151,16 @@ LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
 	}
 	else if (wParam == NM_B)
 	{
-		MessageBox(L"程序管理界面挂载");
-
+		//MessageBox(L"程序管理界面挂载");
+		Context.m_pNewViewClass = RUNTIME_CLASS(CDlgSell);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView*)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CDlgSell), CSize(750, 600), &Context);
+		CDlgSell* pNewView = (CDlgSell*)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
 	}
 	else if (wParam == NM_C)
 	{

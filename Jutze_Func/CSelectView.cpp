@@ -74,7 +74,7 @@ void CSelectView::OnInitialUpdate()
 	m_tree->InsertItem(TEXT("程序管理"), 0, 0);
 	m_tree->InsertItem(TEXT("程序信息"), 0, 0);
 	m_tree->InsertItem(TEXT("程序添加"), 0, 0);
-	m_tree->InsertItem(TEXT("程序删除"), 0, 0);
+	m_tree->InsertItem(TEXT("程序运行"), 0, 0);
 
 	m_font.CreatePointFont(150,L"");
 	m_tree->SetFont(&m_font);
@@ -121,7 +121,7 @@ void CSelectView::OnTvnSelchanged(NMHDR* pNMHDR, LRESULT* pResult)
 	{
 		::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_D, (WPARAM)NM_D, (LPARAM)0);
 	}
-	else if (str == TEXT("程序删除"))
+	else if (str == TEXT("程序运行"))
 	{
 		::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_E, (WPARAM)NM_E, (LPARAM)0);
 	}

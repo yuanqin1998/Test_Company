@@ -12,10 +12,10 @@ using namespace std;
 
 struct msg
 {
-	int id;				//商品id
-	string name;		//商品名
-	int price;			//商品价格
-	int num;			//商品个数
+	int id;				//程序id
+	string name;		//程序名
+	int price;			//程序价格
+	int num;			//程序个数
 };
 
 class CInfoFile
@@ -30,16 +30,16 @@ public:
 	//修改密码
 	void WritePwd(char* name, char* pwd);
 
-	// 读取商品数据
+	// 读取程序数据
 	void ReadDocline();
 
-	//商品写入文件
+	//程序写入文件
 	void WirteDocline();
 
-	//添加新商品
+	//添加新程序
 	void Addline(CString name, int num, int price);
 
-	list<msg> ls;	//存储商品容器
-	int num;			//用来记录商品个数
+	list<msg> ls;	//存储程序容器
+	int num;			//用来记录程序个数
 };
 

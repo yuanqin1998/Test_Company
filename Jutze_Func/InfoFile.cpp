@@ -40,13 +40,13 @@ void CInfoFile::WritePwd(char* name, char* pwd)
 	ofs.close();	//关闭文件
 }
 
-//读取商品信息
+//读取程序信息
 void CInfoFile::ReadDocline()
 {
 	ifstream ifs(_F_STOCK); //输入方式打开文件
 
 	char buf[1024] = { 0 };
-	num = 0;	//初始化商品数目为0
+	num = 0;	//初始化程序数目为0
 	ls.clear();
 	//取出表头
 	ifs.getline(buf, sizeof(buf));
@@ -56,13 +56,13 @@ void CInfoFile::ReadDocline()
 		msg tmp;
 
 		ifs.getline(buf, sizeof(buf)); //读取一行
-		num++;	//商品数目加一
+		num++;	//程序数目加一
 
 		//AfxMessageBox(CString(buf));
 		char *sst = strtok(buf, "|"); //以“|”切割
 		if (sst != NULL)
 		{
-			tmp.id = atoi(sst); //商品id
+			tmp.id = atoi(sst); //程序id
 		}
 		else
 		{
@@ -70,13 +70,13 @@ void CInfoFile::ReadDocline()
 		}
 
 		sst = strtok(NULL, "|");
-		tmp.name = sst;	//商品名称
+		tmp.name = sst;	//程序名称
 
 		sst = strtok(NULL, "|");
-		tmp.price = atoi(sst);	//商品价格
+		tmp.price = atoi(sst);	//程序价格
 
 		sst = strtok(NULL, "|");
-		tmp.num = atoi(sst);	//商品数目
+		tmp.num = atoi(sst);	//程序数目
 
 		ls.push_back(tmp); //放在链表的后面
 	}
@@ -84,14 +84,14 @@ void CInfoFile::ReadDocline()
 	ifs.close(); //关闭文件
 }
 
-//商品写入文件
+//程序写入文件
 void CInfoFile::WirteDocline()
 {
 	ofstream ofs(_F_STOCK);//输出方式打开文件
 
-	if (ls.size() > 0)	//商品链表有内容才执行
+	if (ls.size() > 0)	//程序链表有内容才执行
 	{
-		ofs << "商品ID|商品名称|商品价格|库存" << endl; //写入表头
+		ofs << "程序ID|程序名称|程序价格|库存" << endl; //写入表头
 
 		//通过迭代器取出链表内容，写入文件，以“|”分隔，结尾加换行
 		for (list<msg>::iterator it = ls.begin(); it != ls.end(); it++)
@@ -106,21 +106,21 @@ void CInfoFile::WirteDocline()
 	ofs.close();//关闭文件
 }
 
-//添加新商品
-//name:商品名称，num：库存，price：价格
+//添加新程序
+//name:程序名称，num：库存，price：价格
 void CInfoFile::Addline(CString name, int num, int price)
 {
 	msg tmp;
 
 	if (ls.size() > 0)
 	{
-		//商品名称，库存，价格有效
+		//程序名称，库存，价格有效
 		if (!name.IsEmpty() && num > 0 && price > 0)
 		{
 			tmp.id = ls.size() + 1;	//id自动加1
 			CStringA str;
 			str = name;	//CString转CStirngA
-			tmp.name = str.GetBuffer(); //CStirngA转char *，商品名称
+			tmp.name = str.GetBuffer(); //CStirngA转char *，程序名称
 			tmp.num = num;	//库存
 			tmp.price = price;	//价格
 

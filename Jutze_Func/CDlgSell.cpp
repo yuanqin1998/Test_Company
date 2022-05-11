@@ -75,7 +75,7 @@ void CDlgSell::OnInitialUpdate()
 	file.ReadDocline();
 	for (auto it : file.ls)
 	{
-		//遍历商品容器 容器名称放入下拉框
+		//遍历程序容器 容器名称放入下拉框
 		m_combo.AddString((CString)(it.name.c_str()));
 
 		//默认选中第一个
@@ -90,7 +90,7 @@ void CDlgSell::OnInitialUpdate()
 void CDlgSell::OnCbnSelchangeComboSell()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	//切换商品
+	//切换程序
 
 	//先获取所选索引
 	int index = m_combo.GetCurSel();
@@ -99,7 +99,7 @@ void CDlgSell::OnCbnSelchangeComboSell()
 	CString name;
 	m_combo.GetLBText(index, name);
 
-	//获取商品价格和库存 显示到控件中
+	//获取程序价格和库存 显示到控件中
 		//初始化下拉框
 	CInfoFile file;
 	//file 读对象
@@ -126,13 +126,13 @@ void CDlgSell::OnBnClickedButton1()
 	//购买功能
 	if (m_num <= 0)
 	{
-		MessageBox(TEXT("删除数量要大于零"));
+		MessageBox(TEXT("购买数量要大于零"));
 		return;
 	}
 	//删除数量不能大于库存
 	else if (m_num > m_left)
 	{
-		MessageBox(TEXT("删除数量要大于库存"));
+		MessageBox(TEXT("购买数量要大于库存"));
 		return;
 	}
 
@@ -154,11 +154,11 @@ void CDlgSell::OnBnClickedButton1()
 			m_left = it->num;
 			//告诉用户具体信息
 			CString str;
-			str.Format(_T("商品：%s\r\n单价：%d\r\n个数：%d\r\n总价：%d"), name, m_price, m_num, m_price* m_num);
+			str.Format(_T("程序：%s\r\n单价：%ld\r\n个数：%ld\r\n总价：%ld元"), name, m_price, m_num, m_price* m_num);
 			m_sellinfo = str;
 			//同步到控件
 			UpdateData(FALSE);
-			MessageBox(_T("删除成功！！！"));
+			MessageBox(_T("购买成功！！！"));
 			//break;
 		}
 	}

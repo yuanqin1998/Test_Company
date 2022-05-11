@@ -10,7 +10,7 @@
 #define NM_C	(WM_USER + 102)
 #define NM_D	(WM_USER + 103)
 #define NM_E	(WM_USER + 104)
-
+#define GCL_HICON           (-14) //64位编译
 class CMainFrame : public CFrameWnd
 {
 	
@@ -48,6 +48,12 @@ protected:
 private:
 	CSplitterWnd m_spliter;
 	afx_msg LRESULT OnMyChange(WPARAM wParam, LPARAM lParam);
+public:
+	afx_msg void On32771();
+	afx_msg void On32772();
+	afx_msg void On32773();
+	afx_msg void On32774();
+	afx_msg void On32775();
 };
 
 

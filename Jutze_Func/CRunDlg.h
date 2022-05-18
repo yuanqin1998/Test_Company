@@ -35,6 +35,37 @@ private:
 	CButton m_run;
 public:
 	afx_msg void OnBnClickedButtonRun();
+	virtual void OnFinalRelease();
+	afx_msg void OnBnClickedButtonXmlReadWrite();
+private:
+	CButton m_Xml_Read_Write;
+	CButton m_open;
+public:
+	afx_msg void OnBnClickedButtonOpen();
+private:
+	CButton m_close;
+public:
+	afx_msg void OnBnClickedButtonClose();
+private:
+	CButton m_chrono;
+public:
+	afx_msg void OnBnClickedButtonChrono();
+private:
+	CButton m_json;
+public:
+	afx_msg void OnBnClickedButtonJson();
+private:
+	CButton m_lambda;
+public:
+	afx_msg void OnBnClickedButtonLambda();
+private:
+	CButton m_writefile;
+public:
+	afx_msg void OnBnClickedButtonWritefile();
+private:
+	CButton m_codeCvt;
+public:
+	afx_msg void OnBnClickedButtonCodecvt();
 };
 
 

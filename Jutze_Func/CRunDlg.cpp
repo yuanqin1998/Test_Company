@@ -126,7 +126,7 @@ void CRunDlg::OnInitialUpdate()
 	}
 	catch (...)
 	{
-		AfxMessageBox(_T("AdapterPI启动失败! fasiled: %d"), GetLastError());
+		AfxMessageBox(_T("AdapterPI启动失败! failed: %d"), GetLastError());
 		HANDLE hProcess = GetCurrentProcess();//get current process
 		TerminateProcess(hProcess, 0);         //close process
 	}

@@ -66,6 +66,10 @@ private:
 	CButton m_codeCvt;
 public:
 	afx_msg void OnBnClickedButtonCodecvt();
+
+private:
+	STARTUPINFO si;
+	PROCESS_INFORMATION pi;
 };
 
 

@@ -1,0 +1,50 @@
+{
+    "FullBoardData": {
+        "DataPathLaneI": "",
+        "DataPathLaneII": ""
+    },
+    "ParamCustomer": {
+        "CleanupMode": "delete all",
+        "CustomerName": "JingDongFang",
+        "FuncCode": 0,
+        "Language": "Chinese",
+        "OutputMode": "Save All",
+        "RunningMode": "Single"
+    },
+    "ParamLaneI": {
+        "CustomerParam1": "D:\\222\\output",
+        "CustomerParam10": "XXX",
+        "CustomerParam11": "",
+        "CustomerParam12": "",
+        "CustomerParam13": "",
+        "CustomerParam14": "",
+        "CustomerParam15": "",
+        "CustomerParam2": "D:\\222\\output",
+        "CustomerParam3": "XXX",
+        "CustomerParam4": "XXX",
+        "CustomerParam5": "XXX",
+        "CustomerParam6": "XXX",
+        "CustomerParam7": "XXX",
+        "CustomerParam8": "XXX",
+        "CustomerParam9": "XXX",
+        "StationId": "OP10"
+    },
+    "ParamLaneII": {
+        "CustomerParam1": "",
+        "CustomerParam10": "",
+        "CustomerParam11": "",
+        "CustomerParam12": "",
+        "CustomerParam13": "",
+        "CustomerParam14": "",
+        "CustomerParam15": "",
+        "CustomerParam2": "",
+        "CustomerParam3": "",
+        "CustomerParam4": "",
+        "CustomerParam5": "",
+        "CustomerParam6": "",
+        "CustomerParam7": "",
+        "CustomerParam8": "",
+        "CustomerParam9": "",
+        "StationId": ""
+    }
+}

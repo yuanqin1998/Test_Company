@@ -50,6 +50,7 @@
 #define IDC_BUTTON_WRITEFILE            1028
 #define IDC_BUTTON8                     1029
 #define IDC_BUTTON_CODECVT              1029
+#define IDC_BUTTON_CODECVT2             1030
 #define ID_32771                        32771
 #define ID_32772                        32772
 #define ID_32773                        32773

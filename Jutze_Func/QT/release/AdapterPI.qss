@@ -1,0 +1,130 @@
+.QWidget{
+    background-color:Snow;
+}
+
+QToolButton{
+    border-color:DarkOrange;
+    border-radius:6;
+    border-style:solid;
+    border-width:1;
+}
+
+QLineEdit{
+	color:SteelBlue;
+    background-color:SeaShell;
+    border-color:DarkOrange;
+    border-radius:6;
+    border-style:solid;
+    border-width:1;
+    selection-color:WhiteSmoke;
+    selection-background-color:Purple;
+}
+
+QLineEdit:hover{
+	color:SeaShell;
+    background-color:DarkOrange;
+    border-color:SkyBlue;
+    border-radius:6;
+    border-style:solid;
+    border-width:2;
+    selection-color:WhiteSmoke;
+    selection-background-color:Purple;
+}
+
+QTextBrowser{
+    background-color:SeaShell;
+    border-color:DarkOrange;
+    border-radius:6;
+    border-style:solid;
+    border-width:1;
+    selection-color:WhiteSmoke;
+    selection-background-color:Purple;
+}
+
+QPushButton{
+	color:SteelBlue;
+    background-color:SeaShell;
+    border-color:DarkOrange;
+    border-radius:6;
+    border-style:solid;
+    border-width:1;
+}
+
+QPushButton:hover{
+	color:SeaShell;
+    background-color:DarkOrange;
+    border-color:SkyBlue;
+	border-width:2;
+}
+
+QToolButton{
+	color:SteelBlue;
+    background-color:SeaShell;
+    border-color:DarkOrange;
+    border-radius:6;
+    border-style:solid;
+    border-width:1;
+}
+
+QToolButton:hover{
+	color:SeaShell;
+    background-color:DarkOrange;
+    border-color:SkyBlue;
+	border-width:2;
+}
+
+QLabel{
+	color:SteelBlue;
+	background-color:SeaShell;
+	border-color:DarkOrange;
+    border-radius:3;
+    border-style:solid;
+    border-width:0;
+}
+
+QLabel:hover{
+	color:SeaShell;
+	background-color:DarkOrange;
+	border-color:SkyBlue;
+    border-radius:3;
+    border-style:solid;
+    border-width:2;
+}
+
+QComboBox{
+	color:SteelBlue;
+	background-color:SeaShell;
+    border-color:DarkOrange;
+    border-radius:0;
+    border-style:solid;
+    border-width:1;
+	combobox-popup:1;
+}
+
+QComboBox QAbstractItemView{
+	background-color:DarkOrange;
+}
+
+QGroupBox{
+	color:SteelBlue;
+}
+
+QMenuBar{
+	color:SteelBlue;
+    background-color:SeaShell;
+}
+
+QMenu{
+	color:SteelBlue;
+	background-color:SeaShell;
+}
+
+QMenu:selected{
+	color:SeaShell;
+	background-color:SteelBlue;
+}
+
+QStatusBar{
+	color:SteelBlue;
+    background-color:SeaShell;
+}

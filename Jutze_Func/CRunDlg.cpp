@@ -86,51 +86,6 @@ void CRunDlg::OnInitialUpdate()
 	m_lambda.SetFont(&m_font);
 	m_writefile.SetFont(&m_font);
 	m_codeCvt.SetFont(&m_font);
-	char cWindowsDirectory[MAX_PATH];
-
-	//启动AdapterPI（启动之前此软件不在运行）
-	
-	//LPTSTR 与 wchar_t* 等价(Unicode环境下)  
-	//LPTSTR cWinDir = new TCHAR[MAX_PATH];
-	LPTSTR cModuleDir = new TCHAR[MAX_PATH];
-	//GetCurrentDirectory(MAX_PATH, cWinDir);
-	GetModuleFileName(NULL, cModuleDir, MAX_PATH);
-
-	CString strEXEPath = cModuleDir;
-	int nPos = strEXEPath.ReverseFind(_T('\\'));
-	strEXEPath = strEXEPath.Left(nPos + 1);
-
-	//LPTSTR sConLin = wcscat(cWinDir, L"\\..\\Debug\\another.exe a b c d");
-	LPTSTR sConLin = wcscat(strEXEPath.GetBuffer(), L".\\..\\..\\QT\\release\\AdapterPI.exe");
-
-	//char chPath[301];
-	//::GetCurrentDirectory(300, (LPTSTR)chPath);//得到当前目录
-	//char path[200] = "\\123.exe";
-	//strcat(chPath, path);
-
-	ZeroMemory(&si, sizeof(si));
-	ZeroMemory(&pi, sizeof(pi));
-
-	si.cb = sizeof(si);
-	si.dwFlags = STARTF_FORCEONFEEDBACK;
-
-	try
-	{
-		if (CreateProcess(sConLin, _T(""), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
-		{
-			AfxMessageBox(_T("AdapterPI启动成功!"));
-			//下面两行关闭句柄，解除本进程和新进程的关系，不然有可能不小心调用TerminateProcess函数关掉子进程  
-			//CloseHandle(pi.hProcess);
-			//CloseHandle(pi.hThread);
-		}
-	}
-	catch (...)
-	{
-		AfxMessageBox(_T("AdapterPI启动失败! failed: %d"), GetLastError());
-		HANDLE hProcess = GetCurrentProcess();//get current process
-		TerminateProcess(hProcess, 0);         //close process
-	}
-
 }
 
 void CRunDlg::OnFinalRelease()
@@ -155,14 +110,6 @@ void CRunDlg::OnBnClickedButtonClose()
 	// TODO: 在此添加控件通知处理程序代码
 	fclose(stdout);
 	FreeConsole();//释放控制台资源
-
-	Sleep(2000);
-	//终止子进程  
-	TerminateProcess(pi.hProcess, 300);
-	// 等待子进程结束
-	WaitForSingleObject(pi.hProcess, INFINITE);
-	CloseHandle(pi.hProcess);
-	CloseHandle(pi.hThread);
 }
 
 void CRunDlg::OnBnClickedButtonRun()

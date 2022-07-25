@@ -60,11 +60,17 @@ CMainFrame::~CMainFrame()
 {
 	Sleep(100);
 	//终止子进程  
-	TerminateProcess(pi.hProcess, 300);
-	// 等待子进程结束
+	TerminateProcess(pi.hProcess, 999);
+	//Suspend our execution until
+	//the child has terminated.
 	WaitForSingleObject(pi.hProcess, INFINITE);
+	//The child process terminated;
+	//get its exit code.
+	GetExitCodeProcess(pi.hProcess, &dwExitCode);
+	AfxMessageBox(_T("AdapterPI关闭 ExitCode：%ld"), dwExitCode);
+	//Close the process handle as soon as
+	//it is no longer needed.
 	CloseHandle(pi.hProcess);
-	CloseHandle(pi.hThread);
 }
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -121,12 +127,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	try
 	{
-		if (CreateProcess(strEXEPath, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
+		if (CreateProcess(strEXEPath, NULL, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
 		{
 			AfxMessageBox(_T("AdapterPI启动成功!"));
 			//下面两行关闭句柄，解除本进程和新进程的关系，不然有可能不小心调用TerminateProcess函数关掉子进程  
 			//CloseHandle(pi.hProcess);
-			//CloseHandle(pi.hThread);
+			CloseHandle(pi.hThread);
 		}
 	}
 	catch (...)

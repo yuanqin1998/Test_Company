@@ -58,6 +58,7 @@ public:
 private:
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
+	DWORD dwExitCode;
 };
 
 

@@ -58,7 +58,7 @@ CMainFrame::CMainFrame() noexcept
 
 CMainFrame::~CMainFrame()
 {
-	Sleep(2000);
+	Sleep(100);
 	//终止子进程  
 	TerminateProcess(pi.hProcess, 300);
 	// 等待子进程结束
@@ -103,9 +103,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CString strEXEPath = cModuleDir;
 	int nPos = strEXEPath.ReverseFind(_T('\\'));
 	strEXEPath = strEXEPath.Left(nPos + 1);
+	strEXEPath += L".\\..\\..\\QT\\release\\AdapterPI.exe";
 
 	//LPTSTR sConLin = wcscat(cWinDir, L"\\..\\Debug\\another.exe a b c d");
-	LPTSTR sConLin = wcscat(strEXEPath.GetBuffer(), L".\\..\\..\\QT\\release\\AdapterPI.exe");
+	//LPTSTR sConLin = wcscat(strEXEPath.GetBuffer(), L".\\..\\..\\QT\\release\\AdapterPI.exe");
 
 	//char chPath[301];
 	//::GetCurrentDirectory(300, (LPTSTR)chPath);//得到当前目录
@@ -120,7 +121,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	try
 	{
-		if (CreateProcess(sConLin, _T(""), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
+		if (CreateProcess(strEXEPath, NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
 		{
 			AfxMessageBox(_T("AdapterPI启动成功!"));
 			//下面两行关闭句柄，解除本进程和新进程的关系，不然有可能不小心调用TerminateProcess函数关掉子进程  

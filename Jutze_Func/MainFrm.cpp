@@ -67,7 +67,6 @@ CMainFrame::~CMainFrame()
 	//The child process terminated;
 	//get its exit code.
 	GetExitCodeProcess(pi.hProcess, &dwExitCode);
-	AfxMessageBox(_T("AdapterPI关闭 ExitCode：%ld"), dwExitCode);
 	//Close the process handle as soon as
 	//it is no longer needed.
 	CloseHandle(pi.hProcess);
@@ -123,7 +122,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	ZeroMemory(&pi, sizeof(pi));
 
 	si.cb = sizeof(si);
-	si.dwFlags = STARTF_FORCEONFEEDBACK;
+	//si.dwFlags = STARTF_FORCEONFEEDBACK;
+	si.dwFlags = STARTF_FORCEOFFFEEDBACK;
 
 	try
 	{
